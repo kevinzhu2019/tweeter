@@ -1,0 +1,51 @@
+@media (min-width: 1024px) {
+  body nav {
+    background-color: #4056A1;
+  }
+  
+  body .entire {
+    font-size: 1rem;
+    padding-top: 200px;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  body header {
+    width: 30%;
+    height: 300px;
+    /* border: 1px solid, yellow; */
+  }
+
+  body main.container {
+    width: 70%;
+    /* border: 1px solid yellow; */
+    /* float: left; */
+  }
+
+  body main.container .new-tweet {
+    width: 95%;
+    margin: 0 auto;
+  } 
+
+  body main.container .tweet {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body nav {
+    background-color: #995400;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  }
+}
+
+@media (min-width: 768px) {
+  main.container .tweet .hidden{
+    color: transparent;
+    padding-left: 250px;
+  } 
+}

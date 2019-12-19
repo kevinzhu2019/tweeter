@@ -1,0 +1,63 @@
+main.container .tweet {
+  width: 100%;
+  border: 5px solid black;
+  margin-bottom: 50px;
+}
+
+main.container .tweet .nameAndPicture  {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+main.container .tweet .nameAndPicture .tweetAvatar {
+  padding-left: 30px;
+}
+
+main.container .tweet .nameAndPicture .tweetName {
+  padding-left: 20px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+}
+
+main.container .tweet .contents {
+  width: 90%;
+  margin: 0 auto;
+}
+
+main.container .tweet footer {
+  width: 90%;
+  margin: 0 auto;
+  border-top: 5px solid black; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+main.container .tweet footer .timeStamp {
+  padding-left: 20px;
+}
+
+main.container .tweet footer .icons ul li {
+  display: inline-block;
+  list-style-type: none;
+  letter-spacing: 10px;
+}
+
+main.container .tweet .hidden {
+  /* display: none; */
+  color: transparent;
+  padding-left: 350px;
+  /* border: 2px solid yellow; */
+}
+
+main.container .tweet:hover {
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+
+}
+
+main.container .tweet:hover .hidden {
+  /* display: block; */
+  color: #C6CCE3;
+}

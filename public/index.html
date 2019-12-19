@@ -2,28 +2,104 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,700,700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/all-tweets.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/responsive.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <span class="title">tweeter</span>
+      <div class="upperRightCorner">
+        <div class="texts">
+          <h5><span>Write</span> a new tweet</h5>
+        </div>
+        <div class="animated infinite bounce delay-2s" style="padding-left: 70px;">
+          <a><i class="fas fa-angle-double-down"></i></a>
+        </div>
+      </div>
     </nav>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <div class="entire">
+      <header>
+        <div class="avatar">
+          <img src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div class="name">
+          <h2>Kai</h2>
+        </div>
+      </header>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <div class="errorEmpty">
+            <p><i class="fas fa-exclamation-triangle"></i>------Do not submit empty content!------<i class="fas fa-exclamation-triangle"></i></p>
+          </div>
+          <div class="errorExceed">
+            <p><i class="fas fa-exclamation-triangle"></i>------Your content is too long!------<i class="fas fa-exclamation-triangle"></i></p>
+          </div>
+          <h2>Welcome to my Tweet!</h2>
+          <form id="myForm" action="/tweets" method="POST">
+            <textarea id="myTextarea" name="text" placeholder="What are you humming about?" ></textarea>
+            <div class="buttonCounter">
+              <input type="submit" value="Tweet">
+              <span class="counter">140</span>
+            </div>
+          </form>
+        </section>
+        <!-- <section class="allTweets">
+          <div class="nameAndPicture">
+            <div class="tweetAvatar">
+              <img src="/images/avatar.png">
+            </div>
+            <div class="tweetName">
+              <h4>Elmar Lazzeri</h4>
+            </div>
+            <div class="hidden">
+              <h4>@Sirlsaac</h4>
+            </div>
+          </div>
+          <div class="contents">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut vitae ullam magnam incidunt enim! Sapiente quas debitis deserunt mollitia obcaecati pariatur magnam reprehenderit deleniti, eaque inventore assumenda numquam quaerat consequatur.</p>
+          </div>
+          <footer>
+            <div class="timeStamp">
+              <p>10 days ago</p>
+            </div>
+            <div class="icons">
+              <ul>
+                <li><a href="#"><i class="fas fa-flag"></i></a></li>
+                <li><a href="#"><i class="fas fa-retweet"></i></a></li>
+                <li><a href="#"><i class="fas fa-heart"></i></a></li>
+              </ul>
+            </div>
+          </footer>
+        </section> -->
+        <section id="tweets-container">
+        </section>
+      </main>
+    </div>
   </body>
 </html>
