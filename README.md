@@ -15,3 +15,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- CSS Animate
+
+## Note
+
+The down arrow button may difficult to get hit due to the animation effect. Please try aonther time if it is missing clicked.
