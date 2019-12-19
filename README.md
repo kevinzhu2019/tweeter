@@ -20,3 +20,8 @@ This repository is the starter code for the project: Students will fork and clon
 ## Note
 
 The down arrow button may difficult to get hit due to the animation effect. Please try aonther time if it is missing clicked.
+
+## Screenshots
+
+!["Screenshot of draft a tweet"](https://github.com/kevinzhu2019/tweeter/blob/master/docs/composeATweet.png?raw=true)
+!["Screenshot of post a tweet"](https://github.com/kevinzhu2019/tweeter/blob/master/docs/postATweet.png?raw=true)
