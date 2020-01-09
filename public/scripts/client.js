@@ -4,18 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// const tweetData = {
-//   "user": {
-//     "name": "Newton",
-//     "avatars": "https://i.imgur.com/73hZDYK.png",
-//       "handle": "@SirIsaac"
-//     },
-//   "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//   "created_at": 1461116232227
-// }
-
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -81,40 +69,26 @@ const createTweetElement = function(data) {
   return markup;
 };
 
-// const $tweet = createTweetElement(tweetData);
-
-// console.log($tweet);
-
 const renderTweets = function(tweets) {
   for (const item of tweets) {
     let $tweet = createTweetElement(item);
-    // console.log("tweet", $tweet);
     $('#tweets-container').prepend($tweet);
   }
 };
 
-// const renderTweets = function(tweets) {
-//   for (let i = (tweets.length - 1); i >= 0; i--) {
-//     let $tweet = createTweetElement(tweets[i]);
-//     console.log($tweet);
-//     $('#tweets-container').append($tweet);
-//   }
-// }
-
 $(document).ready(function() {
-  // renderTweets(data);
   $('#myForm').hide();
   $('.container .new-tweet form').on("submit", function(event) {
     event.preventDefault();
     let $formContent = $(this).serialize();
-    // console.log($formContent);
     let tweetContent = $(this).find("textarea").val();//this is to grab the exact contents of the tweet you submit
-    // console.log($formContent);
     if (tweetContent.length === 0) {
-      // alert("Do not submit empty content!");
+      //only relevant error should display, show one and hide the other
       $('.errorEmpty').show();
+      $('.errorExceed').hide();
     } else if (tweetContent.length > 140) {
-      // alert("Your content is too long!");
+      //only relevant error should display, show one and hide the other 
+      $('.errorEmpty').hide();
       $('.errorExceed').show();
     } else if (tweetContent.length > 0 && tweetContent.length <= 140) {
       $('.errorEmpty').hide();
@@ -125,28 +99,23 @@ $(document).ready(function() {
           $('#tweets-container').empty();
           loadTweets();
         });
+      $('#myTextarea').val(''); 
+      $('.buttonCounter .counter').text(140).css("color", "black");
     }
-    $('#myTextarea').val('');
-    $('.buttonCounter .counter').text(140);
+    //move below 2 rows into last IF condition since if tween exedds length the content should not be clear out
+    // $('#myTextarea').val(''); 
+    // $('.buttonCounter .counter').text(140).css("color", "black");
   });
 
   const loadTweets = function() {
-    $.ajax('/tweets', {method: 'GET'})
+    $.ajax({url: '/tweets', method: 'GET'})
       .then(function(tweetData) {
         renderTweets(tweetData);
       });
   };
   loadTweets();
 
-  // $('#myTextarea').focus();
-  // const handleFocus = function() {
-  //   console.log("hello1");
-  //   window.location = '#myForm';
-  //   $('#myTextarea').focus();
-  // }
-
   $('body nav .upperRightCorner a').on("click", function(event) {
-    // window.location = '#myForm';
     $('#myForm').toggle();
     $('html, body').animate({
       scrollTop: $("#myTextarea").offset().top - 120
